@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TSAWEBSITE</title>
+        <link rel="stylesheet"  href="css/style.css" >
+       
+    </head>
+    <body>
+        <h1>
+            Report Vandalism in the local Kansas City Area
+        </h1>
+        <ul class ="footer-menu">
+            <li>
+                <a href = "Index.html"> Report</a>
+            </li>
+            <li>
+                <a href = "Recieve.html"> Help</a>
+            </li>
+        </ul>
+        <div class="forms">
+        <form >
+            Address: <input type = "text" name = "Adress", id = "Address">
+        </form>
+        <div class = "special">
+            <form>
+                <label>Description:</label>
+                <input type = "text" name = "Description", style="height:75px; width:300px" id = "Description">
+            </form>
+        </div>
+
+            <div class = "special">
+                <form>
+                    <label>Additonal Information:</label>
+                    <input type = "text" name = "Additional Information", style="height:75px; width:300px", id = "Additional">
+                 </form>
+            </div>
+
+            <p>
+<br>
+            </p>
+            <form>
+                Image Of Vandalism:<input type = "file" name = "upload" accept = "image/*" onchange="encodeImageFileAsURL(this)"  id = "Image"/>
+            </form>
+
+            <form>
+                <input type="button" value="Submit" class = "btn" id = "Button"/>
+    
+            </form>
+        </div>
+        <script>
+            const button = document.getElementById('Button');       
+     //       console.log(button)
+ 
+        button.onclick = updateButton;
+
+        function updateButton() {
+var adress = (document.getElementById("Address").value).toString();
+var description =( document.getElementById("Description").value).toString();
+var additional =(document.getElementById("Additional").value).toString();
+            sessionStorage.setItem("Address",adress);
+            sessionStorage.setItem("Description",description);
+            sessionStorage.setItem("Additional",additional);
+
+
+ bannerImage = document.getElementById('Image').value;
+ sessionStorage.setItem("imgData", bannerImage);
+ console.log(bannerImage)
+ console.log(sessionStorage.getItem("imgData"));
+
+console.log("It works");
+}
+//   function getBase64Image(img) {
+//      var canvas = document.createElement("canvas");
+//       canvas.width = img.width;
+//             canvas.height = img.height;
+
+//       var ctx = canvas.getContext("2d");
+//      ctx.drawImage(img, 0, 0);
+
+
+// //      var dataURL = canvas.toDataURL("image/png");
+
+// //      return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+// //  }
+function encodeImageFileAsURL(element) {
+  var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('RESULT', reader.result)
+  }
+  reader.readAsDataURL(file);
+
+}
+
+</script>
+    </body>
+</html>

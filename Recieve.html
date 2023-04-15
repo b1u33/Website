@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TSAWEBSITE</title>
+        <link rel="stylesheet"  href="css/style.css" >
+       
+    </head>
+    <body>
+        <h1>
+           Help Remove Vandalism in the Kansas City Area
+        </h1>
+        <ul class ="footer-menu">
+            <li>
+                <a href = "Index.html"> Report</a>
+            </li>
+            <li>
+                <a href = "Recieve.html"> Help</a>
+            </li>
+        </ul>
+        <div>
+            <header>Address::</header>
+            <p id = "address">
+
+</p>
+<header>Description:</header>
+<p id = "Description">
+    
+</p>
+<header>Additional Information:</header>
+<p id = "Additional">
+    
+</p>
+<img src="" id = "Image">
+        </div>
+<form>
+    <input type="button" value="get" class = "btn" id = "Button"/>
+</form>
+<script>
+            const button = document.getElementById('Button');       
+            console.log(button)
+ 
+        button.onclick = updateButton;
+
+
+function updateButton() {
+document.getElementById("address").innerHTML = sessionStorage.getItem("Address")
+document.getElementById("Description").innerHTML = sessionStorage.getItem("Description")
+document.getElementById("Additional").innerHTML = sessionStorage.getItem("Additional")
+console.log(sessionStorage.getItem("Additional"));
+console.log(sessionStorage.getItem("Description"));
+console.log(sessionStorage.getItem("Address"));
+console.log("It works");
+
+// document.getElementById("Image").src = sessionStorage.getItem("imgData")
+}
+
+
+
+
+</script>
+    </body>
+</html>
